@@ -1,30 +1,34 @@
-# 中地體系模擬器 (Commercial Assessment Tool)
+# 地形大師 - 等高線與試題生成器
 
-這是一個基於「中地體系 (Central Place Theory)」的商業選址模擬工具，提供 3D 視覺化環境來評估市場商閾、商品圈與競爭動態。
+這是一個專為地理教育設計的 Web 應用程式，能夠隨機生成等高線地形圖，並利用 Gemini AI 產生相關的地理試題。
 
-## 主要功能
+## 功能特點
 
-- **3D 市場環境**：支援都會區、市鎮區與鄉村區三種不同密度的模擬環境。
-- **商業據點部署**：可自由部署高級 (百貨)、中級 (超市)、低級 (超商) 三種等級的商店。
-- **動態競爭計算**：自動計算商店間的競爭關係，並即時更新有效商品圈。
-- **AI 商業顧問**：整合 Google Gemini AI，針對目前的商店分佈提供專業的市場分析與選址建議。
+- **隨機地形生成**：自動產生具有不同海拔與地勢特徵的等高線圖。
+- **等高線繪製**：精確繪製首曲線與計曲線，並標示海拔高度。
+- **AI 試題生成**：根據目前地圖特徵，由 Gemini AI 編寫專業的地理練習題。
+- **即時回饋**：提供作答檢查與詳細的題目解析。
+- **圖片下載**：可將生成的等高線圖下載為 PNG 格式。
 
-## AI 顧問設定說明
+## 使用說明
 
-本專案使用 Google Gemini API 提供智慧分析功能。為了確保您的隱私與安全，請遵循以下步驟：
+1. **設定 API Key**：
+   - 本程式使用 Google Gemini AI 進行試題生成。
+   - **請於網頁介面點擊右上角的「設定」按鈕，輸入您的 Gemini API Key。**
+   - 金鑰將安全地儲存在您的瀏覽器本地 (localStorage)，不會上傳至任何伺服器。
 
-1. **取得 API Key**：請至 [Google AI Studio](https://aistudio.google.com/app/apikey) 免費申請 API Key。
-2. **於網頁介面輸入**：點擊網頁右下角的「設定 AI」按鈕。
-3. **儲存金鑰**：在彈出的視窗中貼上您的 API Key 並儲存。
-    - *註：您的 API Key 將僅儲存於瀏覽器的本地儲存空間 (localStorage)，不會上傳至任何伺服器。*
+2. **生成地圖**：
+   - 點擊「隨機生成」按鈕可更換不同的地形。
+
+3. **練習試題**：
+   - 設定好 API Key 後，點擊「生成 AI 試題」。
+   - 選擇答案後，系統會自動顯示正確與否以及詳細解析。
 
 ## 技術架構
 
-- **前端**：React 19, TypeScript, Tailwind CSS
-- **3D 渲染**：Three.js, @react-three/fiber, @react-three/drei
-- **AI 整合**：@google/genai (Gemini 1.5 Flash)
-- **部署**：Cloudflare Pages
-
-## 開發者資訊
-
-本專案遵循 Cloudflare Pages 部署規範，確保在靜態託管環境下能正確運行。
+- **前端框架**：React 19
+- **樣式工具**：Tailwind CSS
+- **動畫效果**：Motion (motion/react)
+- **圖標庫**：Lucide React
+- **AI 模型**：Google Gemini 3 Flash
+- **部署平台**：Cloudflare Pages
