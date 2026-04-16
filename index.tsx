@@ -287,22 +287,28 @@ const App = () => {
 
       const prompt = `A highly realistic, professional satellite view or high-altitude oblique aerial photograph of a natural terrain. Features: ${featureLabels || 'mountains, valleys, and ridges'}. Elevation range: ${minHeight}m to ${maxHeight}m. The image should look like a real location on Earth (e.g., Alps, Himalayas, or Grand Canyon style depending on features). Natural colors, realistic geological textures, clear shadows indicating relief. No text, no icons, no artificial overlays. 8k resolution, cinematic lighting.`;
 
+      console.log('Generating 3D terrain with model: gemini-3.1-flash-image-preview');
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
+        model: 'gemini-3.1-flash-image-preview',
         contents: { parts: [{ text: prompt }] },
         config: {
           imageConfig: {
             aspectRatio: "1:1",
+            imageSize: "1K"
           }
         }
       });
 
-      if (!response.candidates || response.candidates.length === 0) {
-        throw new Error('模型未返回任何結果，可能是由於安全過濾器或暫時性錯誤。');
+      if (!response || !response.candidates || response.candidates.length === 0) {
+        console.error('Full response:', response);
+        throw new Error('模型未返回任何結果，可能是由於安全過濾器、配額限制或暫時性錯誤。');
       }
 
       let foundImage = false;
-      for (const part of response.candidates[0].content.parts) {
+      const parts = response.candidates[0].content.parts;
+      console.log('Response parts:', parts.length);
+
+      for (const part of parts) {
         if (part.inlineData) {
           setGeneratedImage(`data:image/png;base64,${part.inlineData.data}`);
           foundImage = true;
@@ -311,7 +317,9 @@ const App = () => {
       }
 
       if (!foundImage) {
-        throw new Error('模型未返回圖像數據。' + (response.text ? ` 模型回覆：${response.text}` : ''));
+        const responseText = response.text || '無文字回覆';
+        console.error('No image found in parts. Response text:', responseText);
+        throw new Error('模型未返回圖像數據。' + responseText);
       }
     } catch (err: any) {
       console.error(err);
