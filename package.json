@@ -1,5 +1,5 @@
 {
-  "name": "等高線與模擬地形生產器",
+  "name": "geopolitical-trade-&-supply-chain-intelligence",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,20 +10,20 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@google/genai": "^1.33.0",
-    "@tailwindcss/postcss": "^4.2.2",
-    "@tailwindcss/vite": "^4.0.0",
-    "autoprefixer": "^10.4.27",
-    "lucide-react": "^0.561.0",
+    "@google/genai": "^1.42.0",
+    "clsx": "^2.1.1",
+    "d3": "^7.9.0",
+    "lucide-react": "^1.8.0",
     "motion": "^12.38.0",
-    "postcss": "^8.5.8",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "tailwindcss": "^4.2.2"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "tailwindcss": "^4.2.4",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
