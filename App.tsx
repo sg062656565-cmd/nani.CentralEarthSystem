@@ -11,9 +11,9 @@ import { twMerge } from 'tailwind-merge';
 
 // Utility for tailwind classes
 function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs)); 
 }
-
+  
 const script = document.createElement('script');
 script.src = "https://unpkg.com/topojson-client@3";
 document.head.appendChild(script);
