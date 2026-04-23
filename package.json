@@ -1,5 +1,5 @@
 {
-  "name": "中地體系模擬器",
+  "name": "等高線與模擬地形生產器",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,20 +10,20 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@google/genai": "^1.46.0",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.2",
+    "@google/genai": "^1.33.0",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/vite": "^4.0.0",
+    "autoprefixer": "^10.4.27",
     "lucide-react": "^0.561.0",
+    "motion": "^12.38.0",
+    "postcss": "^8.5.8",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-markdown": "^10.1.0",
-    "three": "^0.182.0"
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
-    "tailwindcss": "^4.2.2",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
